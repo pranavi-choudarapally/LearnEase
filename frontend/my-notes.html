@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>My Notes</title>
+
+<link rel="stylesheet"
+      href="css/style.css">
+
+<link rel="stylesheet"
+      href="css/my-notes.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📄 My Notes</h1>
+<div class="search-box">
+
+<input
+type="text"
+id="search"
+placeholder="🔍 Search Notes..."
+onkeyup="searchFiles()">
+
+</div>
+<table>
+
+<thead>
+
+<tr>
+
+<th>File Name</th>
+
+<th>Type</th>
+
+<th>Size</th>
+
+<th>Uploaded By</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tableBody">
+
+</tbody>
+
+</table>
+
+<br>
+
+<a href="dashboard.html">
+
+← Dashboard
+
+</a>
+
+</div>
+
+<script src="js/my-notes.js"></script>
+
+</body>
+
+</html>
