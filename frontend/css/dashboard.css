@@ -1,121 +1,679 @@
-.dashboard{
+/* LearnEase Dashboard V2 */
 
-    display:flex;
-
-    min-height:100vh;
-
+/* ---------- Base ---------- */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#F4F7FC;
+    color:#1E293B;
+}
+
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ---------- Sidebar ---------- */
 
 .sidebar{
-
-    width:250px;
-
-    background:#2563EB;
-
-    color:white;
-
-    padding:30px;
-
+    width:280px;
+    background:#fff;
+    border-right:1px solid #E5E7EB;
+    display:flex;
+    flex-direction:column;
+    
+    padding:18px;
+    box-shadow:4px 0 18px rgba(0,0,0,.04);
 }
 
-.sidebar h2{
-
-    margin-bottom:40px;
-
+.sidebar-top{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
 }
 
-.sidebar ul{
-
-    list-style:none;
-
-}
-
-.sidebar li{
-
-    padding:15px;
-
-    border-radius:10px;
-
-    margin-bottom:10px;
-
+.menu-toggle{
+    width:42px;
+    height:42px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    border-radius:12px;
     cursor:pointer;
-
     transition:.3s;
-
+    margin-bottom:0px;
 }
 
-.sidebar li:hover{
+.menu-toggle:hover{
+    background:#EEF4FF;
+}
 
-    background:rgba(255,255,255,.15);
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:0px;
+}
 
+.logo-image{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+}
+
+.logo-icon{
+    font-size:36px;
+}
+
+.logo-text{
+    font-size:32px;
+    font-weight:700;
+    color:#2563EB;
+}
+
+.sidebar-menu{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.menu-item{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:14px 18px;
+    border-radius:16px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.menu-item:hover{
+    background:#F3F7FF;
+}
+
+.menu-icon{
+    font-size:22px;
+}
+
+.menu-text{
+    font-size:17px;
+    font-weight:500;
 }
 
 .active{
-
-    background:white;
-
+    background:#E8F0FF;
     color:#2563EB;
-
     font-weight:600;
-
 }
+
+.logout-section{
+    border-top:1px solid #E5E7EB;
+    padding-top:18px;
+}
+
+/* ---------- Main ---------- */
 
 .main-content{
-
     flex:1;
-
-    padding:40px;
-
-    background:#F8FAFC;
-
+    padding:35px;
 }
 
-.topbar{
-
-    margin-bottom:40px;
-
+.top-navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:28px;
 }
 
-.cards{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:25px;
-
+.good-text{
+    color:#64748B;
+    font-weight:500;
 }
 
-.dashboard-card{
+.top-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
 
-    background:white;
+.notification{
 
-    border-radius:18px;
+    width:52px;
 
-    padding:25px;
+    height:52px;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    background:#FFFFFF;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 10px 25px rgba(37,99,235,.12);
+
+    border:2px solid #EEF4FF;
+
+    font-size:22px;
+
+    cursor:pointer;
 
     transition:.3s;
+
+}
+
+.notification:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 18px 35px rgba(37,99,235,.20);
+
+}
+
+.profile-image{
+
+    width:54px;
+
+    height:54px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid white;
+
+    box-shadow:0 10px 25px rgba(37,99,235,.18);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.profile-image:hover{
+
+    transform:scale(1.08);
+
+}
+
+/* ---------- Hero ---------- */
+
+.hero-banner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:linear-gradient(135deg,#EEF4FF,#F8FBFF);
+    border-radius:28px;
+    padding:45px 50px;
+    box-shadow:0 12px 30px rgba(0,0,0,.05);
+    margin-bottom:35px;
+}
+
+.hero-small{
+    font-size:20px;
+    color:#64748B;
+}
+
+.hero-left h1{
+    font-size:48px;
+    color:#2563EB;
+    margin:10px 0;
+}
+
+.hero-description{
+    color:#64748B;
+    max-width:420px;
+    line-height:1.7;
+}
+
+.hero-right img{
+    width:260px;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    50%{transform:translateY(-8px);}
+}
+
+/* ---------- Cards ---------- */
+
+.cards-container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.feature-card{
+    border-radius:24px;
+    padding:24px;
+    min-height:250px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-shadow:0 10px 24px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 35px rgba(37,99,235,.15);
+}
+
+.upload-card{background:#FFF8EA;}
+.notes-card{background:#F5F0FF;}
+.summary-card{background:#EEF6FF;}
+.resources-card{
+    background:#F2FFF5;
+    
+}
+.quiz-card{background:#FFF2F2;}
+
+.feature-card img{
+    width:110px;
+    height:110px;
+    object-fit:contain;
+    margin-bottom:12px;
+    transition:.3s;
+}
+
+.feature-card:hover img{
+    transform:scale(1.08);
+}
+
+.feature-card h2{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.feature-card p{
+    color:#64748B;
+    line-height:1.6;
+}
+
+.card-footer{
+    margin-top:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.card-footer button{
+    border:none;
+    background:#fff;
+    color:#2563EB;
+    border-radius:12px;
+    padding:12px 20px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.card-footer button:hover{
+    background:#2563EB;
+    color:#fff;
+}
+
+.card-footer span{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    transition:.3s;
+}
+
+.feature-card:hover .card-footer span{
+    transform:translateX(5px);
+    background:#2563EB;
+    color:#fff;
+}
+
+/* ---------- Responsive ---------- */
+
+@media(max-width:1200px){
+    .cards-container{
+        grid-template-columns:repeat(2,1fr);
+    }
+    .resources-card{
+        grid-column:auto;
+    }
+}
+
+@media(max-width:900px){
+    .hero-banner{
+        flex-direction:column;
+        text-align:center;
+        gap:24px;
+    }
+}
+
+@media(max-width:768px){
+    .sidebar{
+        display:none;
+    }
+
+    .main-content{
+        padding:20px;
+    }
+
+    .cards-container{
+        grid-template-columns:1fr;
+    }
+
+    .hero-left h1{
+        font-size:38px;
+    }
+
+    .hero-right img{
+        width:190px;
+    }
+}
+/* Paste this at the very bottom of dashboard.css */
+
+/* When collapsed, narrow the sidebar and hide text links */
+.dashboard.collapsed .sidebar {
+    width: 80px;
+    padding: 18px 10px;
+}
+
+/* Hide all text labels */
+.dashboard.collapsed .sidebar .menu-text,
+.dashboard.collapsed .sidebar .logo-text {
+    display: none;
+}
+
+/* Center items and icons in the collapsed state */
+.dashboard.collapsed .sidebar .menu-item,
+.dashboard.collapsed .sidebar .logo {
+    justify-content: center;
+    padding: 14px 0;
+    gap: 0;
+}
+/* ===========================
+   Profile Dropdown
+=========================== */
+
+.profile-container{
+
+    position:relative;
 
     cursor:pointer;
 
 }
 
-.dashboard-card:hover{
+.profile-dropdown{
 
-    transform:translateY(-5px);
+    position:absolute;
+
+    top:65px;
+
+    right:0;
+
+    width:260px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+
+    padding:18px;
+
+    display:none;
+
+    z-index:1000;
+
+    animation:fadeIn .25s ease;
 
 }
 
-.dashboard-card h2{
+.profile-dropdown.show{
+
+    display:block;
+
+}
+
+.profile-header{
+
+    text-align:center;
 
     margin-bottom:15px;
 
 }
 
-.dashboard-card p{
+.dropdown-profile{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin-bottom:10px;
+
+}
+
+.profile-header h3{
+
+    font-size:20px;
+
+    margin:0;
+
+    color:#1E293B;
+
+}
+
+.profile-header p{
+
+    margin-top:6px;
 
     color:#64748B;
+
+    font-size:14px;
+
+}
+
+.profile-dropdown hr{
+
+    border:none;
+
+    border-top:1px solid #E5E7EB;
+
+    margin:15px 0;
+
+}
+
+.dropdown-item{
+
+    padding:12px 15px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.dropdown-item:hover{
+
+    background:#EEF4FF;
+
+    color:#2563EB;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+.notification{
+
+    position:relative;
+
+}
+
+.notification-badge{
+
+    position:absolute;
+
+    top:-4px;
+
+    right:-2px;
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    background:#EF4444;
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+/* ===========================
+   Notification Dropdown
+=========================== */
+
+.notification-container{
+
+    position:relative;
+
+}
+
+.notification-dropdown{
+
+    position:absolute;
+
+    top:70px;
+
+    right:0;
+
+    width:320px;
+
+    background:#FFFFFF;
+
+    border-radius:18px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+
+    padding:20px;
+
+    display:none;
+
+    z-index:1000;
+
+    animation:fadeIn .25s ease;
+
+}
+
+.notification-dropdown.show{
+
+    display:block;
+
+}
+
+.notification-dropdown h3{
+
+    margin:0 0 15px;
+
+    font-size:20px;
+
+    color:#1E293B;
+
+}
+
+.notification-item{
+
+    padding:15px;
+
+    border-radius:12px;
+
+    margin-bottom:12px;
+
+    background:#F8FAFC;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.notification-item:hover{
+
+    background:#EEF4FF;
+
+}
+
+.notification-item strong{
+
+    display:block;
+
+    color:#1E293B;
+
+    font-size:15px;
+
+}
+
+.notification-item p{
+
+    margin:6px 0;
+
+    color:#64748B;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+}
+
+.notification-item small{
+
+    color:#94A3B8;
+
+    font-size:12px;
 
 }

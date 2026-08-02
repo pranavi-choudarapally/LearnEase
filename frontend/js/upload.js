@@ -7,6 +7,15 @@ form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const file = document.getElementById("file").files[0];
+    if (!file) {
+    alert("Please select a PDF file.");
+    return;
+}
+
+if (file.type !== "application/pdf") {
+    alert("Only PDF files are allowed.");
+    return;
+}
 
     if (!file) {
 

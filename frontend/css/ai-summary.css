@@ -1,0 +1,201 @@
+body{
+    margin:0;
+    background:#f4f7fc;
+    font-family:Poppins,sans-serif;
+}
+
+.container{
+    width:82%;
+    margin:40px auto;
+}
+
+h1{
+    color:#243b53;
+    margin-bottom:25px;
+}
+
+.card,
+.summary-card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
+
+    margin-bottom:30px;
+
+}
+
+label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+select{
+
+    width:100%;
+
+    padding:13px;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+    font-size:16px;
+
+}
+
+button{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+}
+
+button:hover{
+
+    background:#1d4ed8;
+
+}
+
+.loader{
+
+    width:45px;
+
+    height:45px;
+
+    border:5px solid #e5e7eb;
+
+    border-top:5px solid #2563eb;
+
+    border-radius:50%;
+
+    margin:20px auto;
+
+    animation:spin 1s linear infinite;
+
+}
+
+.loading-text{
+
+    text-align:center;
+
+    color:#2563eb;
+
+    font-weight:600;
+
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+#summaryResult{
+    margin-top:20px;
+    line-height:1.7;
+    color:#333;
+}
+
+/* Main Sections
+   1. Short Summary
+   2. Important Concepts
+   3. Important Definitions
+*/
+
+#summaryResult h1,
+#summaryResult h2{
+
+    color:#2563eb;
+
+    font-size:28px;
+
+    margin:28px 0 14px;
+
+    padding-left:12px;
+
+    border-left:5px solid #2563eb;
+
+    font-weight:700;
+
+}
+
+/* Sub Topics
+   Platform Independence
+   JVM
+   JDK
+*/
+
+#summaryResult h3{
+
+    color:#2563eb;
+
+    font-size:18px;
+
+    margin:18px 0 8px;
+
+    padding-left:10px;
+
+    border-left:4px solid #2563eb;
+
+    font-weight:600;
+
+}
+
+#summaryResult p{
+
+    margin:8px 0 14px;
+
+    line-height:1.8;
+}
+
+/* Lists */
+#summaryResult ul{
+
+    margin:8px 0 18px 28px;
+
+    padding:0;
+}
+
+#summaryResult li{
+
+    margin:6px 0;
+
+    line-height:1.7;
+}
+
+#summaryResult strong{
+
+    color:#111827;
+}

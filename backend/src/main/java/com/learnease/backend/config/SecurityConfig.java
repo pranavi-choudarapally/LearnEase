@@ -26,15 +26,15 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
         .csrf(csrf -> csrf.disable())
 
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers(
-                "/api/auth/**",
-                "/api/materials/**"
-            ).permitAll()
-
-            .anyRequest().authenticated()
+                .requestMatchers(
+                        "/api/auth/**",
+                        "/api/ai/**",
+                        "/api/materials/**"
+                ).permitAll()
+                .anyRequest().authenticated()
         )
 
-        .httpBasic(httpBasic -> httpBasic.disable());
+        .httpBasic(Customizer.withDefaults());
 
     return http.build();
 }
