@@ -14,7 +14,8 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://netlify.app") // Your active Netlify link
+                        // 👇 UPDATE THIS LINE WITH YOUR NEW NETLIFY DOMAIN
+                        .allowedOrigins("https://eloquent-banoffee-515181.netlify.app/") 
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
