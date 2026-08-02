@@ -19,23 +19,20 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
+   @Bean
 public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
     http
         .csrf(csrf -> csrf.disable())
-
         .authorizeHttpRequests(auth -> auth
-                .requestMatchers(
-                        "/api/auth/**",
-                        "/api/ai/**",
-                        "/api/materials/**"
-                ).permitAll()
-                .anyRequest().authenticated()
-        )
-
-        .httpBasic(Customizer.withDefaults());
+            .requestMatchers(
+                "/api/auth/**",
+                "/api/ai/**",
+                "/api/materials/**"
+            ).permitAll()
+            .anyRequest().authenticated()
+        ); // 🌟 Closed cleanly here without httpBasic!
 
     return http.build();
 }
+
 }
