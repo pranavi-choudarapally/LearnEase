@@ -376,30 +376,18 @@ public String generateResources(String extractedText) {
 
 }
 
-    // ========================= COMMON =========================
-
-    private String callOpenRouter(Map<String, Object> body) {
-
-        return restClient.post()
-
-                .uri(apiUrl)
-
-                .contentType(MediaType.APPLICATION_JSON)
-
-                .header("Authorization", "Bearer " + apiKey)
-
-                .header("HTTP-Referer", "https://netlify.app")
-
-
-                .header("X-Title", "LearnEase")
-
-                .body(body)
-
-                .retrieve()
-
-                .body(String.class);
-
-    }
-    
+    // ========================= COMMON ========================= 
+private String callOpenRouter(Map<String, Object> body) { 
+    return restClient.post() 
+        .uri(apiUrl) 
+        .contentType(MediaType.APPLICATION_JSON) 
+        .header("Authorization", "Bearer " + apiKey) 
+        // 🌟 FIXED: Points straight to your active production Netlify application layout
+        .header("HTTP-Referer", "https://eloquent-banoffee-515181.netlify.app") 
+        .header("X-Title", "LearnEase") 
+        .body(body) 
+        .retrieve() 
+        .body(String.class); 
+}
 
 }
