@@ -388,7 +388,8 @@ public String generateResources(String extractedText) {
 
                 .header("Authorization", "Bearer " + apiKey)
 
-                .header("HTTP-Referer", "http://localhost:8080")
+                .header("HTTP-Referer", "https://netlify.app")
+
 
                 .header("X-Title", "LearnEase")
 
