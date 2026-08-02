@@ -14,11 +14,10 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        // 👇 UPDATE THIS LINE WITH YOUR NEW NETLIFY DOMAIN
-                        .allowedOrigins("https://eloquent-banoffee-515181.netlify.app/") 
+                        .allowedOrigins("*") // 🌟 ALLOW ALL ORIGINS FOR TESTING
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowCredentials(true);
+                        .allowCredentials(false); // 🌟 Set to false when using "*" origin
             }
         };
     }
