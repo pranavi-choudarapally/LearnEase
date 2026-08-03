@@ -17,16 +17,14 @@ public class CloudinaryService {
 
     public String uploadPdf(MultipartFile file) throws IOException {
 
-    Map<?, ?> result = cloudinary.uploader().upload(
-            file.getInputStream(),
-            ObjectUtils.asMap(
-                    "resource_type", "raw",
-                    "folder", "learnease-pdfs",
-                    "use_filename", true,
-                    "unique_filename", true
-            )
-    );
+        Map<?, ?> result = cloudinary.uploader().upload(
+                file.getBytes(),
+                ObjectUtils.asMap(
+                        "resource_type", "raw",
+                        "folder", "learnease-pdfs"
+                )
+        );
 
-    return result.get("secure_url").toString();
-}
+        return result.get("secure_url").toString();
+    }
 }
