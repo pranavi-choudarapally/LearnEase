@@ -99,7 +99,24 @@ public class OpenRouterService {
                 "messages", List.of(
                     Map.of(
                         "role", "user",
-                        "content", "Generate exactly 10 multiple-choice questions from the following study notes as a valid JSON object. Study Notes: " + safeText
+                       "content",
+"Generate exactly 10 multiple-choice questions from the study notes.\n\n" +
+"Return ONLY valid JSON.\n" +
+"Do NOT include markdown.\n" +
+"Do NOT include ```json.\n" +
+"Do NOT include explanations.\n" +
+"Return EXACTLY in this format:\n" +
+"{\n" +
+"  \"questions\": [\n" +
+"    {\n" +
+"      \"question\": \"Question text\",\n" +
+"      \"options\": [\"Option A\", \"Option B\", \"Option C\", \"Option D\"],\n" +
+"      \"answer\": 0\n" +
+"    }\n" +
+"  ]\n" +
+"}\n\n" +
+"Study Notes:\n" +
+safeText
                     )
                 )
             );
