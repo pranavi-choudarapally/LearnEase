@@ -17,35 +17,27 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/materials")
-@CrossOrigin(origins = "http://127.0.0.1:5500")
+@CrossOrigin(
+    origins = {
+        "http://127.0.0.1:5500",
+        "https://eloquent-banoffee-515181.netlify.app"
+    }
+)
 public class StudyMaterialController {
 
     @Autowired
     private StudyMaterialService studyMaterialService;
 
-    @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(
+   @PostMapping("/upload")
+public ResponseEntity<String> uploadFile(
+        @RequestParam("file") MultipartFile file,
+        @RequestParam("uploadedBy") String uploadedBy) {
 
-            @RequestParam("file") MultipartFile file,
+    System.out.println("========== CONTROLLER HIT ==========");
+    System.out.println(file.getOriginalFilename());
 
-            @RequestParam("uploadedBy") String uploadedBy
-
-    ) throws IOException {
-
-        // Allow only PDF files
-        if (!"application/pdf".equals(file.getContentType())) {
-
-            return ResponseEntity
-                    .badRequest()
-                    .body("Only PDF files are allowed.");
-
-        }
-
-        String response = studyMaterialService.uploadFile(file, uploadedBy);
-
-        return ResponseEntity.ok(response);
-
-    }
+    return ResponseEntity.ok("Controller reached");
+}
 
     @GetMapping("/all")
     public ResponseEntity<List<StudyMaterial>> getAllFiles() {
