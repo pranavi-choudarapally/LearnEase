@@ -51,8 +51,8 @@ public class OpenRouterService {
         try {
             String safeText = escapeJsonString(extractedText);
             
-            Map<String, Object> body = Map.of(
-                "model", "meta-llama/llama-3.1-8b-instruct:free", // Using stable free model
+           Map<String, Object> body = Map.of(
+                "model", model,// Using stable free model
                 "messages", List.of(
                     Map.of(
                         "role", "user",
@@ -95,7 +95,7 @@ public class OpenRouterService {
             String safeText = escapeJsonString(extractedText);
             
             Map<String, Object> body = Map.of(
-                "model", "meta-llama/llama-3.1-8b-instruct:free",
+                "model", model,// Using stable free model
                 "messages", List.of(
                     Map.of(
                         "role", "user",
@@ -130,7 +130,7 @@ public class OpenRouterService {
             String safeText = escapeJsonString(extractedText);
             
             Map<String, Object> body = Map.of(
-                "model", "meta-llama/llama-3.1-8b-instruct:free",
+                "model", model,// Using stable free model
                 "messages", List.of(
                     Map.of(
                         "role", "user",
