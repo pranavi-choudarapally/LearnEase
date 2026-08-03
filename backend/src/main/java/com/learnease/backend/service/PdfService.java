@@ -5,21 +5,22 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
 @Service
 public class PdfService {
 
-    public String extractText(String filePath) {
+    public String extractText(String fileUrl) {
 
-        try (PDDocument document = Loader.loadPDF(new File(filePath))) {
+        try (InputStream inputStream = new URL(fileUrl).openStream();
+             PDDocument document = Loader.loadPDF(inputStream.readAllBytes())) {
 
             PDFTextStripper stripper = new PDFTextStripper();
 
             String text = stripper.getText(document);
 
-            // Prevent sending huge documents to the AI
             if (text.length() > 15000) {
                 text = text.substring(0, 15000);
             }
