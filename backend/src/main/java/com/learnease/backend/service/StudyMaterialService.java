@@ -21,7 +21,7 @@ public class StudyMaterialService {
     public String uploadFile(MultipartFile file, String uploadedBy) throws IOException {
 
         // Upload PDF to Cloudinary
-        String fileUrl = cloudinaryService.uploadPdf(file);
+        String cloudinaryUrl = cloudinaryService.uploadPdf(file);
 
         // Save metadata
         StudyMaterial material = new StudyMaterial();
@@ -30,8 +30,8 @@ public class StudyMaterialService {
         material.setFileType(file.getContentType());
         material.setFileSize(file.getSize());
 
-        // Store Cloudinary URL instead of local path
-        material.setFilePath(fileUrl);
+        // Save Cloudinary URL instead of local path
+        material.setFilePath(cloudinaryUrl);
 
         material.setUploadedBy(uploadedBy);
 
@@ -49,10 +49,7 @@ public class StudyMaterialService {
                 .orElseThrow(() -> new RuntimeException("File not found"));
     }
 
-    public void deleteFile(Long id) throws IOException {
-
-        // Delete only from database for now.
-        // (We'll add Cloudinary deletion later.)
+    public void deleteFile(Long id) {
 
         StudyMaterial material = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("File not found"));

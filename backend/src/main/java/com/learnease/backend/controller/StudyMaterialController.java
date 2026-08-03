@@ -28,15 +28,20 @@ public class StudyMaterialController {
     @Autowired
     private StudyMaterialService studyMaterialService;
 
-   @PostMapping("/upload")
+ @PostMapping("/upload")
 public ResponseEntity<String> uploadFile(
         @RequestParam("file") MultipartFile file,
-        @RequestParam("uploadedBy") String uploadedBy) {
+        @RequestParam("uploadedBy") String uploadedBy) throws IOException {
 
-    System.out.println("========== CONTROLLER HIT ==========");
-    System.out.println(file.getOriginalFilename());
+    // Allow only PDF files
+    if (!"application/pdf".equals(file.getContentType())) {
+        return ResponseEntity.badRequest()
+                .body("Only PDF files are allowed.");
+    }
 
-    return ResponseEntity.ok("Controller reached");
+    String response = studyMaterialService.uploadFile(file, uploadedBy);
+
+    return ResponseEntity.ok(response);
 }
 
     @GetMapping("/all")
